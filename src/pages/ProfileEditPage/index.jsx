@@ -1,119 +1,115 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 
-import BasePage from '../BasePage';
-import HeadLine from '../../components/HeadLine';
+import BaseProfilePage from '../BaseProfilePage';
+import { userActions } from '../../_actions';
 
 
 class ProfileEditPage extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            user: {
+                firstName: '',
+                lastName: '',
+                email: '',
+                telephone: ''
+            },
+            submitted: false
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        const { name, value } = event.target;
+        const { user } = this.state;
+        this.setState({
+            user: {
+                ...user,
+                [name]: value
+            }
+        });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+
+        this.setState({ submitted: true });
+        const { user } = this.state;
+        const { dispatch } = this.props;
+        if (user) {
+            dispatch(userActions.profileEdit(user));
+        }
+    }  
   
   render() {
+    const { savingProfile } = this.props;
+    const { user, submitted } = this.state;
     return (
       <Fragment>
-        <BasePage title="Editar Meu Perfil">
-         
-         <HeadLine />
-         
-    
-    <section id="content">
-      <div class="container">
-        <div class="row">
-          <div class="span4">
-            <aside class="left-sidebar">
-              <div class="widget">
-                <form class="form-search">
-                  <input placeholder="Type something" type="text" class="input-medium search-query"/>
-                  <button type="submit" class="btn btn-square btn-theme">Search</button>
-                </form>
-              </div>
-              <div class="widget">
-                <h5 class="widgetheading">Categories</h5>
-                <ul class="cat">
-                  <li><i class="icon-angle-right"></i><a href="#">Web design</a><span> (20)</span></li>
-                  <li><i class="icon-angle-right"></i><a href="#">Online business</a><span> (11)</span></li>
-                  <li><i class="icon-angle-right"></i><a href="#">Marketing strategy</a><span> (9)</span></li>
-                  <li><i class="icon-angle-right"></i><a href="#">Technology</a><span> (12)</span></li>
-                  <li><i class="icon-angle-right"></i><a href="#">About finance</a><span> (18)</span></li>
-                </ul>
-              </div>
-              <div class="widget">
-                <h5 class="widgetheading">Latest posts</h5>
-                <ul class="recent">
-                  <li>
-                    <img src="img/dummies/blog/65x65/thumb1.jpg" class="pull-left" alt="" />
-                    <h6><a href="#">Lorem ipsum dolor sit</a></h6>
-                    <p>
-                      Mazim alienum appellantur eu cu ullum officiis pro pri
-                    </p>
-                  </li>
-                  <li>
-                    <a href="#"><img src="img/dummies/blog/65x65/thumb2.jpg" class="pull-left" alt="" /></a>
-                    <h6><a href="#">Maiorum ponderum eum</a></h6>
-                    <p>
-                      Mazim alienum appellantur eu cu ullum officiis pro pri
-                    </p>
-                  </li>
-                  <li>
-                    <a href="#"><img src="img/dummies/blog/65x65/thumb3.jpg" class="pull-left" alt="" /></a>
-                    <h6><a href="#">Et mei iusto dolorum</a></h6>
-                    <p>
-                      Mazim alienum appellantur eu cu ullum officiis pro pri
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </aside>
-          </div>
-          <div class="span8">
+        <BaseProfilePage title="Editar Meu Perfil">
+            
             <article>
-              <div class="row">
-                <div class="span8">
-                  <div class="post-image">
-                    <div class="post-heading">
-                      <h3><a href="#">This is an example of standard post format</a></h3>
+              <div className="row">
+                <div className="span8">
+                  <div className="post-image">
+                    <div className="post-heading">
+                      <h3>This is an example of standard post format</h3>
                     </div>
                   </div>
-                    
-                    <form>
-                      <div class="form-group">
-                        <label for="fistname">Nome</label> 
-                        <input id="fistname" name="fistname" placeholder="Seu Nome" type="text" required="required" class="form-control here" />
+                    <form onSubmit={this.handleSubmit}>
+                      <div classNameName={'form-group' + (submitted && !user.firstName ? ' has-error' : '')}>
+                        <label for="firstName">Nome</label> 
+                        <input id="firstName" name="firstName" placeholder="Seu Nome" type="text" required="required" classNameName="form-control here" value={user.firstName} onChange={this.handleChange} />
+                        {submitted && !user.firstName &&
+                            <div classNameName="help-block">First Name is required</div>
+                        }
                       </div>
-                      <div class="form-group">
-                        <label for="lastname">Sobrenome</label> 
-                        <input id="lastname" name="lastname" placeholder="Seu Sobrenome" type="text" required="required" class="form-control here" />
+                      <div classNameName={'form-group' + (submitted && !user.lastName ? ' has-error' : '')}>
+                        <label for="lastName">Sobrenome</label> 
+                        <input id="lastName" name="lastName" placeholder="Seu Sobrenome" type="text" required="required" classNameName="form-control here" value={user.lastName} onChange={this.handleChange}/>
+                        {submitted && !user.lastName &&
+                            <div classNameName="help-block">First Name is required</div>
+                        }
                       </div>
-                      <div class="form-group">
+                      <div classNameName={'form-group' + (submitted && !user.email ? ' has-error' : '')}>
                         <label for="email">E-mail</label> 
-                        <input id="email" name="email" placeholder="Seu E-mail" type="text" required="required" class="form-control here" />
+                        <input id="email" name="email" placeholder="Seu E-mail" type="text" required="required" classNameName="form-control here" value={user.email} onChange={this.handleChange}/>
+                        {submitted && !user.email &&
+                            <div classNameName="help-block">First Name is required</div>
+                        }
                       </div>
-                      <div class="form-group">
+                      <div classNameName={'form-group' + (submitted && !user.telephone ? ' has-error' : '')}>
                         <label for="telephone">Telefone</label> 
-                        <input id="telephone" name="telephone" placeholder="Seu telefone" type="text" required="required" class="form-control here" />
+                        <input id="telephone" name="telephone" placeholder="Seu telefone" type="text" required="required" classNameName="form-control here" value={user.telephone} onChange={this.handleChange}/>
+                        {submitted && !user.telephone &&
+                            <div classNameName="help-block">First Name is required</div>
+                        }
                       </div> 
-                      <div class="form-group">
-                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                      <div classNameName='form-group'>
+                        <button name="submit" type="submit" classNameName="btn btn-primary" disabled={(savingProfile ? 'disabled' : '')} >Submit</button>
                       </div>
                     </form>
-
-
 
                 </div>
               </div>
             </article>
-            
-            
-          </div>
-        </div>
-      </div>
-    </section>
-         
-         
-         
-         
-        </BasePage>
+
+        </BaseProfilePage>
       </Fragment>
     );
   }
 }
 
-export default ProfileEditPage;
+function mapStateToProps(state) {
+    const { savingProfile } = state;
+    return {
+        savingProfile
+    };
+}
+
+const connectedProfileEditPage = connect(mapStateToProps)(ProfileEditPage);
+export { connectedProfileEditPage as ProfileEditPage }; 

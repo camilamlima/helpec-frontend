@@ -1,7 +1,7 @@
 import { authHeader } from '../_helpers';
 
 export const config = {
-    apiUrl: 'http://ec2-35-174-62-178.compute-1.amazonaws.com:8000/api',
+    apiUrl: 'https://helpec.herokuapp.com/api',
 };
 
 
@@ -25,9 +25,9 @@ function login(username, password) {
         .then(handleResponse)
         .then(user => {
             // login successful if there's a jwt token in the response
-            if (user.key) {
+            if (user) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                window.localStorage.setItem('user', JSON.stringify(user));
+                localStorage.setItem('user', user);
             }
 
             return user;
@@ -80,7 +80,7 @@ function update(user) {
 
 function handleResponse(response) {
     return response.text().then(text => {
-        const data = text && JSON.parse(text);
+        // const data = text && JSON.parse(text);
         if (!response.ok) {
             if (response.status === 401) {
                 // auto logout if 401 response returned from api
@@ -88,12 +88,12 @@ function handleResponse(response) {
                 window.location.reload(true);
             }
     
-            console.log(data)
-            const error = (data && data.message) || response.statusText;
+            alert(text)
+            const error = text || response.statusText;
             
             return Promise.reject(error);
         }
 
-        return data;
+        return text;
     });
 }

@@ -2,13 +2,19 @@ import { userConstants } from '../_constants';
 import { userService } from '../_services';
 import { alertActions } from './';
 import { history } from '../_helpers';
+import $ from 'jquery';
 
 export const userActions = {
     login,
     logout,
     register,
     getAll,
+    profileEdit,
 };
+
+function close_modal(){
+    $("#mySignin .close").click();
+}
 
 function login(username, password) {
     return dispatch => {
@@ -18,7 +24,8 @@ function login(username, password) {
             .then(
                 user => { 
                     dispatch(success(user));
-                    history.push('/');
+                    history.push('/profile');
+                    close_modal();
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -45,8 +52,9 @@ function register(user) {
             .then(
                 user => { 
                     dispatch(success());
-                    history.push('/login');
+                    history.push('/profile');
                     dispatch(alertActions.success('Registration successful'));
+                    close_modal();
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -74,4 +82,26 @@ function getAll() {
     function request() { return { type: userConstants.GETALL_REQUEST } }
     function success(users) { return { type: userConstants.GETALL_SUCCESS, users } }
     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
+}
+
+function profileEdit(user) {
+    return dispatch => {
+        dispatch(request(user));
+
+        userService.update(user)
+            .then(
+                 user => { 
+                    dispatch(success());
+                    dispatch(alertActions.success('Profile Edit successful'));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                    dispatch(alertActions.error(error.toString()));
+                }
+            );
+    };
+
+    function request(user) { return { type: userConstants.PROFILE_EDIT_REQUEST } }
+    function success(user) { return { type: userConstants.PROFILE_EDIT_SUCCESS, user } }
+    function failure(error) { return { type: userConstants.PROFILE_EDIT_FAILURE, error } }
 }

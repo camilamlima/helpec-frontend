@@ -36,7 +36,7 @@ class Login extends React.Component {
             dispatch(userActions.login(username, password));
         }
     }
-
+  
     render() {
         const { loggingIn } = this.props;
         const { username, password, submitted } = this.state;
@@ -54,25 +54,25 @@ class Login extends React.Component {
                     <div className="controls">
                       <input type="text" name='username' placeholder="E-mail" value={username} onChange={this.handleChange}/>
                       {submitted && !username &&
-                        <div className="help-block">Username is required</div>
+                        <div className="help-block">E-mail é obrigatório</div>
                       }
                     </div>
                   </div>
                   <div className={'control-group' + (submitted && !password ? ' has-error' : '')}>
                     <label className="control-label" htmlFor="password">Password</label>
                     <div className="controls">
-                      <input type="password" name="password" placeholder="Password" value={password} onChange={this.handleChange} />
+                      <input type="password" name="password" placeholder="Senha" value={password} onChange={this.handleChange} />
                       {submitted && !password &&
-                        <div className="help-block">Password is required</div>
+                        <div className="help-block">Senha é obrigatória</div>
                       }
                     </div>
                   </div>
                   <div className="control-group">
                     <div className="controls">
-                      <button type="submit" className="btn" disabled={(loggingIn ? 'disabled' : '')} >Sign in</button>
+                      <button type="submit" className="btn" disabled={(loggingIn ? 'disabled' : '')} >Enviar</button>
                     </div>
                     <p className="aligncenter margintop20">
-                      Forgot password? <a href="#myReset" data-dismiss="modal" aria-hidden="true" data-toggle="modal">Reset</a>
+                      Esqueceu a senha? <a href="#myReset" data-dismiss="modal" aria-hidden="true" data-toggle="modal">Reset</a>
                     </p>
                   </div>
                 </form>

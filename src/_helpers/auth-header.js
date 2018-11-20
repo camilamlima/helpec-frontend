@@ -1,6 +1,6 @@
 export function authHeader() {
     // return authorization header with jwt token
-    let user = JSON.parse(window.localStorage.getItem('user'));
+    let user = JSON.parse(localStorage.getItem('user'));
 
     if (user && user.key) {
         return { 'Authorization': 'Bearer ' + user.key };
@@ -11,9 +11,9 @@ export function authHeader() {
 
 export function getUser() {
     // return authorization user saved
-    let user = JSON.parse(window.localStorage.getItem('user'));
+    let user = JSON.parse(localStorage.getItem('user'));
 
-    if (user && user.key) {
+    if ((user && user.key)) {
         return true;
     } else {
         return false;
