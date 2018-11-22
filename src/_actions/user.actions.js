@@ -10,6 +10,7 @@ export const userActions = {
     register,
     getAll,
     profileEdit,
+    getById,
 };
 
 function close_modal(){
@@ -55,6 +56,7 @@ function register(user) {
                     history.push('/profile');
                     dispatch(alertActions.success('Registration successful'));
                     close_modal();
+            
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -82,6 +84,28 @@ function getAll() {
     function request() { return { type: userConstants.GETALL_REQUEST } }
     function success(users) { return { type: userConstants.GETALL_SUCCESS, users } }
     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
+}
+
+function getById() {
+    return dispatch => {
+        dispatch(request());
+
+        userService.getById()
+            .then(
+                user => {
+                    dispatch(success(user))
+                    let save_user = JSON.parse(localStorage.getItem('user'));
+                    
+                    save_user = { ...JSON.parse(user)};
+                    localStorage.setItem('user', JSON.stringify(save_user));
+                },
+                error => dispatch(failure(error.toString()))
+            );
+    };
+
+    function request(user) { return { type: userConstants.GETBYID_REQUEST, user } }
+    function success(user) { return { type: userConstants.GETBYID_SUCCESS, user } }
+    function failure(error) { return { type: userConstants.GETBYID_FAILURE, error } }
 }
 
 function profileEdit(user) {

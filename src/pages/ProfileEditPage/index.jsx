@@ -9,6 +9,10 @@ class ProfileEditPage extends Component {
     constructor(props) {
         super(props);
 
+        let user = JSON.parse(localStorage.getItem('user'));
+        const { dispatch } = this.props;
+        dispatch(userActions.getById(user));
+
         this.state = {
             user: {
                 firstName: '',

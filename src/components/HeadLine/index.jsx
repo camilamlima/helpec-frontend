@@ -8,7 +8,7 @@ class HeadLine extends Component {
             <div className="row">
               <div className="span4">
                 <div className="inner-heading">
-                  <h2>Blog left sidebar</h2>
+                  <h2>Meu Perfil</h2>
                 </div>
               </div>
               <div className="span8">

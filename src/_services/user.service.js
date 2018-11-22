@@ -48,13 +48,13 @@ function getAll() {
     return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse);
 }
 
-function getById(id) {
+function getById() {
     const requestOptions = {
         method: 'GET',
         headers: authHeader()
     };
 
-    return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
+    return fetch(`${config.apiUrl}/rest-auth/user/`, requestOptions).then(handleResponse);
 }
 
 function register(user) {

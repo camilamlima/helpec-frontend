@@ -3,7 +3,7 @@ export function authHeader() {
     let user = JSON.parse(localStorage.getItem('user'));
 
     if (user && user.key) {
-        return { 'Authorization': 'Bearer ' + user.key };
+        return { 'Authorization': 'Token ' + user.key };
     } else {
         return {};
     }
@@ -12,9 +12,9 @@ export function authHeader() {
 export function getUser() {
     // return authorization user saved
     let user = JSON.parse(localStorage.getItem('user'));
-
-    if ((user && user.key)) {
-        return true;
+    
+    if (user && user.key) {
+        return true            
     } else {
         return false;
     }
