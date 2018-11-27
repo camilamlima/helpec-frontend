@@ -1,18 +1,13 @@
 import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
 
 import BaseProfilePage from '../BaseProfilePage';
-import { userActions } from '../../_actions';
-
 
 class ProfileEditPage extends Component {
     constructor(props) {
         super(props);
 
         let user = JSON.parse(localStorage.getItem('user'));
-        const { dispatch } = this.props;
-        dispatch(userActions.getById(user));
-
+        
         this.state = {
             user: {
                 firstName: '',
@@ -43,9 +38,9 @@ class ProfileEditPage extends Component {
 
         this.setState({ submitted: true });
         const { user } = this.state;
-        const { dispatch } = this.props;
+        
         if (user) {
-            dispatch(userActions.profileEdit(user));
+            console.log("SALVANDO")
         }
     }  
   
@@ -107,13 +102,4 @@ class ProfileEditPage extends Component {
     );
   }
 }
-
-function mapStateToProps(state) {
-    const { savingProfile } = state;
-    return {
-        savingProfile
-    };
-}
-
-const connectedProfileEditPage = connect(mapStateToProps)(ProfileEditPage);
-export { connectedProfileEditPage as ProfileEditPage }; 
+export default ProfileEditPage;

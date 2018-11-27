@@ -1,8 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-
-import { userActions } from '../../_actions';
 
 class Register extends React.Component {
     constructor(props) {
@@ -38,9 +35,9 @@ class Register extends React.Component {
 
         this.setState({ submitted: true });
         const { user } = this.state;
-        const { dispatch } = this.props;
+        
         if (user.username && user.email && user.password1 && user.password2) {
-            dispatch(userActions.register(user));
+            console.log("registrando")
         }
     }
 
@@ -98,13 +95,4 @@ class Register extends React.Component {
         );
     }
 }
-
-function mapStateToProps(state) {
-    const { registering } = state.registration;
-    return {
-        registering
-    };
-}
-
-const connectedRegister = connect(mapStateToProps)(Register);
-export { connectedRegister as Register };
+export default Register

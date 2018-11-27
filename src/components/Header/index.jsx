@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { getUser } from '../../_helpers';
-import { Login } from '../../components/SigninModal';
-import { Register } from '../../components/SignupModal';
+import Login from '../../components/SigninModal';
+import Register from '../../components/SignupModal';
 
 class Header extends Component {
   
@@ -17,7 +16,7 @@ class Header extends Component {
   }
   componentDidMount() {
     
-    let user = getUser();
+    let user = false
     if (user){
        this.setState({
             is_authentication: true
