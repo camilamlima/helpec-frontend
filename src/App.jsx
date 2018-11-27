@@ -7,6 +7,7 @@ import { alertActions } from './_actions';
 import { PrivateRoute } from './components';
 
 import HomePage from './pages/HomePage';
+import QuemSomosPage from './pages/QuemSomosPage';
 import MitosPage from './pages/MitosPage';
 import AboutPage from './pages/AboutPage';
 import SocorrosPage from './pages/SocorrosPage';
@@ -32,6 +33,7 @@ class App extends React.Component {
           <Router history={history}>
             <div>
                 <Route exact path='/' component={HomePage}/>
+                <Route exact path='/quemsomos' component={QuemSomosPage}/>
                 <Route exact path='/mitos' component={MitosPage}/>
                 <Route exact path='/sobre' component={AboutPage}/>
                 <Route exact path='/socorros' component={SocorrosPage}/>

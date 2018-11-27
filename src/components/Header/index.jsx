@@ -82,8 +82,8 @@ class Header extends Component {
               <div className="navigation">
                 <nav>
                 <ul className="nav topnav">
-                  <li className="dropdown">
-                    <Link to="/"><i className="fa fa-cog"></i>Quem somos</Link>
+                <li className="dropdown">
+                    <Link to="/quemsomos"><i className="fa fa-cog"></i>Quem somos</Link>
                   </li>
                   <li className="dropdown">
                     <Link to="/mitos"><i className="fa fa-cog"></i> Mitos e Lendas</Link>
