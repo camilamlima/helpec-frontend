@@ -5,26 +5,38 @@ import BasePage from '../BasePage';
 import LastestPosts from '../../components/LastestPosts';
 
 
-class BaseProfilePage extends Component {
+class BaseBlogPage extends Component {
   
   render() {
+    let categories = [
+      {
+        categorie:'test',
+        categorieTitle:'TESTE',
+        categorieCount: 10
+      }
+    ];
     return (
       <Fragment>
-        <BasePage title="Meu Perfil">
+        <BasePage title={this.props.title}>
          
           <section id="content">
             <div className="container">
               <div className="row">
                 <div className="span4">
                   <aside className="left-sidebar">
+                    
                     <div className="widget">
-                      <h5 className="widgetheading">NOME</h5>
+                      <h5 className="widgetheading">Caregorias</h5>
                       <ul className="cat">
-                        <li><i className="icon-angle-right"></i><Link to="/profile">DashBoard</Link></li>
-                        <li><i className="icon-angle-right"></i><Link to="/profile/edit">Editar Perfil</Link></li>
-                        <li><i className="icon-angle-right"></i><a href="#">Quem Avisar</a></li>
-                        <li><i className="icon-angle-right"></i><a href="#">Historio de Ocorenciasr</a></li>
-                        <li><i className="icon-angle-right"></i><a href="#">Sair</a></li>
+                        {categories.map((item, i) => {
+                          return (
+                          <li key={i}>
+                            <i class="icon-angle-right"></i>
+                              <Link to={`/saibamais/${item.categorie}/`}>{item.categorieTitle}</Link>
+                                <span> ({item.categorieCount})</span>
+                          </li>
+                          );
+                        })}                     
                       </ul>
                     </div>
                     
@@ -43,4 +55,4 @@ class BaseProfilePage extends Component {
   }
 }
 
-export default BaseProfilePage;
+export default BaseBlogPage;

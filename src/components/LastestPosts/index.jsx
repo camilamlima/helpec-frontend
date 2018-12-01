@@ -1,32 +1,22 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class LastestPosts extends Component {
   render() {
+    let posts = []
     return (
         <div className="widget">
-            <h5 className="widgetheading">Latest posts</h5>
+            <h5 className="widgetheading">Ultimos Artigos</h5>
             <ul className="recent">
-              <li>
-                <img src="img/dummies/blog/65x65/thumb1.jpg" className="pull-left" alt="" />
-                <h6><a href="#">Lorem ipsum dolor sit</a></h6>
-                <p>
-                  Mazim alienum appellantur eu cu ullum officiis pro pri
-                </p>
-              </li>
-              <li>
-                <a href="#"><img src="img/dummies/blog/65x65/thumb2.jpg" className="pull-left" alt="" /></a>
-                <h6><a href="#">Maiorum ponderum eum</a></h6>
-                <p>
-                  Mazim alienum appellantur eu cu ullum officiis pro pri
-                </p>
-              </li>
-              <li>
-                <a href="#"><img src="img/dummies/blog/65x65/thumb3.jpg" className="pull-left" alt="" /></a>
-                <h6><a href="#">Et mei iusto dolorum</a></h6>
-                <p>
-                  Mazim alienum appellantur eu cu ullum officiis pro pri
-                </p>
-              </li>
+              {posts.map((item, i) => {
+                return (
+                  <li key={i}>
+                    <img src={item.img} className="pull-left" alt="" />
+                    <h6><Link to={`/saibamais/${item.categorie}/${item.uid}/`}>{item.title}</Link></h6>
+                    <p>{item.text}</p>
+                  </li>
+                );
+              })}
             </ul>
         </div>
     );

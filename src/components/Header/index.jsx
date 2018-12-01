@@ -55,8 +55,8 @@ class Header extends Component {
             <div>
               <div className="headnav">
                 <ul>
-                  <li><a href="#mySignup" data-toggle="modal"><i className="icon-user"></i> Sair</a></li>
-                  <li><a href="#mySignin" data-toggle="modal">Login</a></li>
+                  <li><a href="#mySignup" data-toggle="modal"><i className="icon-user"></i>Login</a></li>
+                  <li><a href="#mySignin" data-toggle="modal">Registre-se</a></li>
                 </ul>
               </div>
               
@@ -81,22 +81,24 @@ class Header extends Component {
               <div className="navigation">
                 <nav>
                 <ul className="nav topnav">
-                <li className="dropdown">
+                  <li>
+                    <Link to="/"><i className="fa fa-cog"></i>Home</Link>
+                  </li>
+                  <li>
                     <Link to="/quemsomos"><i className="fa fa-cog"></i>Quem somos</Link>
                   </li>
-                  <li className="dropdown">
-                    <Link to="/mitos"><i className="fa fa-cog"></i> Mitos e Lendas</Link>
-                  </li>
-                  <li className="dropdown">
-                      <Link to="/sobre"><i className="fa fa-cog"></i>Falando Sobre</Link>
-                  </li>
-                  <li className="dropdown">
+                  <li>
                       <Link to="/socorros"><i className="fa fa-cog"></i>Primeiros Socorros</Link>
                   </li>
                   <li className="dropdown">
-                      <Link to="/saibamais"><i className="fa fa-cog"></i>Saiba Mais</Link>
+                    <a href="#">Saiba Mais<i class="icon-angle-down"></i></a>
+                      <ul class="dropdown-menu">
+                        <li><Link to="/saibamais"><i className="fa fa-cog"></i>Artigos</Link></li>
+                        <li><Link to="/mitos"><i className="fa fa-cog"></i>Mitos e Lendas</Link></li>
+                        <li><Link to="/sobre"><i className="fa fa-cog"></i>Falando Sobre</Link></li>
+                      </ul>
                   </li>
-                  <li className="dropdown">
+                  <li>
                       <Link to="/contato"><i className="fa fa-cog"></i>Contato</Link>
                   </li>
                  </ul>

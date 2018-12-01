@@ -3,24 +3,24 @@ import React, { Component, Fragment } from 'react';
 import BaseBlogPage from '../BaseBlogPage';
 import HighlightPost from '../../components/HighlightPost';
 
-class ReadPage extends Component {
+class CategoriePage extends Component {
   
   render() {
     let posts = [];
     return (
       <Fragment>
-        <BaseBlogPage title="Saiba Mais">
+        <BaseBlogPage title="Saiba Mais sobre CATEGORIA">
 
           {posts.map((item, i) => {
             return (
               <HighlightPost post={item} key={i}/>
             );
           })}
-          
+
         </BaseBlogPage>
       </Fragment>
     );
   }
 }
 
-export default ReadPage;
+export default CategoriePage;
