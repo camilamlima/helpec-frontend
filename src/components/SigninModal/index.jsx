@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+
+import {getUsers, setSessionUser} from '../../utils';
 
 
 class Login extends React.Component {
@@ -28,8 +30,21 @@ class Login extends React.Component {
         const { username, password } = this.state;
         
         if (username && password) {
-            console.log("logando")
+            console.log("logando");
+            let users = getUsers().filter(u => u.username == username && u.password1 == password);
+            if (users.length) {
+              setSessionUser(users[0]);
+              this.setState({
+                redirect: true
+              })
+            }
         }
+    }
+  
+    renderRedirect = () => {
+      if (this.state.redirect) {
+        return <Redirect to='/profile' />
+      }
     }
   
     render() {
@@ -38,9 +53,10 @@ class Login extends React.Component {
         return (
             <div id="mySignin" className="modal styled hide fade" tabIndex="-1" role="dialog" 
                  aria-labelledby="mySigninModalLabel" aria-hidden="true">
+              {this.renderRedirect()}
               <div className="modal-header">
                 <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 id="mySigninModalLabel">Login to your <strong>account</strong></h4>
+                <h4 id="mySigninModalLabel">Login para seu <strong>perfil</strong></h4>
               </div>
               <div className="modal-body">
                 <form className="form-horizontal" onSubmit={this.handleSubmit}>
@@ -66,18 +82,16 @@ class Login extends React.Component {
                     <div className="controls">
                       <button type="submit" className="btn" disabled={(loggingIn ? 'disabled' : '')} >Enviar</button>
                     </div>
+                    {/* 
                     <p className="aligncenter margintop20">
                       Esqueceu a senha? <a href="#myReset" data-dismiss="modal" aria-hidden="true" data-toggle="modal">Reset</a>
                     </p>
+                    */}
                   </div>
                 </form>
               </div>
             </div>
 
-            /* Reset Modal */
-                      
-            
-            
         );
     }
 }

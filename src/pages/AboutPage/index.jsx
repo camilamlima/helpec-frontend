@@ -142,9 +142,7 @@ class AboutPage extends Component {
                           </div>
                         </div>
                       </div>
-                      <div className="span6">
-                        
-                      </div>
+                      
                     </div>
                   </div>
                 </section>

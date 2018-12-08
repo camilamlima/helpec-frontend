@@ -10,7 +10,7 @@ class BaseProfilePage extends Component {
   render() {
     return (
       <Fragment>
-        <BasePage title="Meu Perfil">
+        <BasePage title={this.props.title}>
          
           <section id="content">
             <div className="container">
@@ -22,9 +22,9 @@ class BaseProfilePage extends Component {
                       <ul className="cat">
                         <li><i className="icon-angle-right"></i><Link to="/profile">DashBoard</Link></li>
                         <li><i className="icon-angle-right"></i><Link to="/profile/edit">Editar Perfil</Link></li>
-                        <li><i className="icon-angle-right"></i><a href="#">Quem Avisar</a></li>
-                        <li><i className="icon-angle-right"></i><a href="#">Historio de Ocorenciasr</a></li>
-                        <li><i className="icon-angle-right"></i><a href="#">Sair</a></li>
+                        <li><i className="icon-angle-right"></i><Link to="/profile/contatos">Quem Avisar</Link></li>
+                        <li><i className="icon-angle-right"></i><Link to="/profile/historico">Historio de Ocorencias</Link></li>
+                        <li><i className="icon-angle-right"></i><Link to="/profile/sair">Sair</Link></li>
                       </ul>
                     </div>
                     

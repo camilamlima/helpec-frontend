@@ -1,12 +1,24 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+let Users = localStorage.getItem('users');
+if (!Users) {
+    localStorage.setItem('users', "[]")
+}
+let LoggedUser = localStorage.getItem('user');
+if (!LoggedUser) {
+    localStorage.setItem('user', "{}")
+}
+
 
 render(
-    <App />,
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
     document.getElementById('root')
 );
 

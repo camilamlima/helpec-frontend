@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 
 import Login from '../../components/SigninModal';
 import Register from '../../components/SignupModal';
+import './header.css'
+
+import {getSessionUser} from '../../utils';
 
 class Header extends Component {
   
@@ -16,11 +19,10 @@ class Header extends Component {
   }
   componentDidMount() {
     
-    let user = false
+    let user = getSessionUser();
     if (user){
        this.setState({
             is_authentication: true
-         
        })
     }
     
@@ -38,25 +40,24 @@ class Header extends Component {
 						    <ul className="navbar-right">
 				  				<li className="dropdown">
 					          <a href="#" className="dropdown-toggle profile-image" data-toggle="dropdown">
-					            <img src="http://placehold.it/30x30" className="img-circle special-img" />Seu Perfil<b className="caret"></b>
+					            <img src="http://placehold.it/30x30" className="img-circle special-img" alt="profile"/>
+					              Seu Perfil<b className="caret"></b>
 				            </a>
           					<ul className="dropdown-menu">
           						<li>
           						  <Link to="/profile"><i className="fa fa-cog"></i>Seu dados</Link>
         						  </li>
-          						<li><a href="#"><i className="fa fa-sign-out"></i>Sair</a></li>
+          						<li><Link to="/profile/sair"><i className="fa fa-sign-out"></i>Sair</Link></li>
           					</ul>
 				          </li>
 			          </ul>
 		          </div>
-              
-
             ) : (
             <div>
               <div className="headnav">
                 <ul>
-                  <li><a href="#mySignup" data-toggle="modal"><i className="icon-user"></i>Login</a></li>
-                  <li><a href="#mySignin" data-toggle="modal">Registre-se</a></li>
+                  <li><a href="#mySignup" data-toggle="modal"><i className="icon-user"></i>Registre-se</a></li>
+                  <li><a href="#mySignin" data-toggle="modal">Login</a></li>
                 </ul>
               </div>
               
@@ -73,7 +74,7 @@ class Header extends Component {
           <div className="span4">
             <div className="logo">
               <img src="/assets/img/logo.png" alt="" className="logo" />
-              <h1>Helpec - Help Epilepsia e Convulsão </h1>
+              <h1 className="logo h1">Helpec - Help Epilepsia e Convulsão </h1>
             </div>
           </div>
           <div className="span8">
@@ -88,15 +89,18 @@ class Header extends Component {
                     <Link to="/quemsomos"><i className="fa fa-cog"></i>Quem somos</Link>
                   </li>
                   <li>
+                      <Link to="/falandosobre"><i className="fa fa-cog"></i>Falando Sobre</Link>
+                  </li>
+                  <li>
                       <Link to="/socorros"><i className="fa fa-cog"></i>Primeiros Socorros</Link>
                   </li>
                   <li className="dropdown">
-                    <a href="#">Saiba Mais<i class="icon-angle-down"></i></a>
-                      <ul class="dropdown-menu">
-                        <li><Link to="/saibamais"><i className="fa fa-cog"></i>Artigos</Link></li>
-                        <li><Link to="/mitos"><i className="fa fa-cog"></i>Mitos e Lendas</Link></li>
-                        <li><Link to="/sobre"><i className="fa fa-cog"></i>Falando Sobre</Link></li>
-                      </ul>
+                    <a href="#">Saiba Mais<i className="icon-angle-down"></i></a>
+                    <ul className="dropdown-menu">
+                      <li><Link to="/saibamais"><i className="fa fa-cog"></i>Artigos</Link></li>
+                      <li><Link to="/mitos"><i className="fa fa-cog"></i>Mitos e Lendas</Link></li>
+                      <li><Link to="/sobre"><i className="fa fa-cog"></i>Falando Sobre</Link></li>
+                    </ul>
                   </li>
                   <li>
                       <Link to="/contato"><i className="fa fa-cog"></i>Contato</Link>

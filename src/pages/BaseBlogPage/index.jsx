@@ -3,18 +3,17 @@ import { Link } from 'react-router-dom';
 
 import BasePage from '../BasePage';
 import LastestPosts from '../../components/LastestPosts';
-
+import { categories } from '../../data_source';
 
 class BaseBlogPage extends Component {
   
   render() {
-    let categories = [
-      {
-        categorie:'test',
-        categorieTitle:'TESTE',
-        categorieCount: 10
-      }
-    ];
+    
+    let items = []
+    categories.forEach(function(value, key) {
+      items.push(value)
+    });
+
     return (
       <Fragment>
         <BasePage title={this.props.title}>
@@ -28,10 +27,10 @@ class BaseBlogPage extends Component {
                     <div className="widget">
                       <h5 className="widgetheading">Caregorias</h5>
                       <ul className="cat">
-                        {categories.map((item, i) => {
+                        {items.map((item, i) => {
                           return (
                           <li key={i}>
-                            <i class="icon-angle-right"></i>
+                            <i className="icon-angle-right"></i>
                               <Link to={`/saibamais/${item.categorie}/`}>{item.categorieTitle}</Link>
                                 <span> ({item.categorieCount})</span>
                           </li>

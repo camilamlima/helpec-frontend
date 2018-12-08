@@ -1,12 +1,13 @@
 import React, { Component, Fragment } from 'react';
 
 import BaseProfilePage from '../BaseProfilePage';
+import {getSessionUser} from '../../utils';
 
 class ProfileEditPage extends Component {
     constructor(props) {
         super(props);
 
-        let user = JSON.parse(localStorage.getItem('user'));
+        let user = getSessionUser();
         
         this.state = {
             user: {
@@ -41,6 +42,7 @@ class ProfileEditPage extends Component {
         
         if (user) {
             console.log("SALVANDO")
+            alert("Perfil salvo com sucesso")
         }
     }  
   
@@ -56,7 +58,7 @@ class ProfileEditPage extends Component {
                 <div className="span8">
                   <div className="post-image">
                     <div className="post-heading">
-                      <h3>This is an example of standard post format</h3>
+                      <h3>Alterar dados do meu perfil</h3>
                     </div>
                   </div>
                     <form onSubmit={this.handleSubmit}>

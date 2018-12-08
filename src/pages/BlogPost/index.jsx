@@ -1,55 +1,62 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 import BaseBlogPage from '../BaseBlogPage';
 
+import { posts } from '../../data_source';
+
 
 class BlogPost extends Component {
-  
+   constructor(props) {
+    super(props);
+
+    this.state = {
+      post: {},
+      post_id: props.match.params.post_uid,
+    };
+    
+  }
+  componentWillMount(){
+    let post_uid = this.props.match.params.post_uid;
+    const post = posts.filter(post => post.uid == post_uid);
+
+    this.setState({
+      post: post,
+    });
+    
+  }
+
   render() {
+    let post = this.state.post;
     return (
       <Fragment>
-        <BaseBlogPage title="POST XXXXXXX">
-
+        <BaseBlogPage title={post.title}>
             <article>
               <div className="row">
                 <div className="span8">
                   <div className="post-image">
                     <div className="post-heading">
-                      <h3><a href="#">Example single post title here</a></h3>
+                      <h3><Link to={`/saibamais/${post.categorie}/${post.uid}/`}>{post.title}</Link></h3>
                     </div>
-                    <img src="img/dummies/blog/img1.jpg" alt="" />
+                    <img src={post.img} alt="" />
                   </div>
-                  <p>
-                    Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper laoreet perfecto ad qui, est rebum nulla argumentum ei. Fierent adipisci iracundia est ei, usu timeam persius
-                    ea. Usu ea justo malis, pri quando everti electram ei, ex homero omittam salutatus sed. Dicam appetere ne qui, no has scripta appellantur. Mazim alienum appellantur eu cum, cu ullum officiis pro, pri at eius erat accusamus. Eos id
-                    hinc fierent indoctum, ad accusam consetetur voluptatibus sit. His at quod impedit. Eu zril quando perfecto mel, sed eu eros debet.
-                  </p>
-                  <blockquote>
-                    <i className="icon-quote-left"></i> Lorem ipsum dolor sit amet, ei quod constituto qui. Summo labores expetendis ad quo, lorem luptatum et vis. No qui vidisse signiferumque...
-                  </blockquote>
-                  <p>
-                    Fierent adipisci iracundia est ei, usu timeam persius ea. Usu ea justo malis, pri quando everti electram ei, ex homero omittam salutatus sed. Dicam appetere ne qui, no has scripta appellantur. Mazim alienum appellantur eu cum, cu ullum officiis pro, pri
-                    at eius erat accusamus.
-                  </p>
+                  <div>{post.full_text}</div>
                   <div className="bottom-article">
                     <ul className="meta-post">
-                      <li><i className="icon-user"></i><a href="#"> Admin</a></li>
-                      <li><i className="icon-folder-open"></i><a href="#"> Blog</a></li>
-                      <li><i className="icon-tags"></i><a href="#">Web design</a></li>
+                      <li><i className="icon-folder-open"></i><Link to={`/saibamais/${post.categorie}/`} >{post.categorieTitle}</Link></li>
                     </ul>
                   </div>
                 </div>
               </div>
             </article>
             {/* -- author info -- */}
-            <div className="about-author">
-              <a href="#" className="thumbnail align-left"><img src="img/avatar.png" alt="" /></a>
-              <h5><strong><a href="#">John doe</a></strong></h5>
-              <p>
-                Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper ad qui, est rebum nulla argumentum ei.
-              </p>
-            </div>        
-
+            {post.author.map((item, i) => {
+              return (
+                <div className="about-author" key={i}>
+                 <h5><strong>{item}</strong></h5>
+                </div>        
+              )
+            })};
         </BaseBlogPage>
       </Fragment>
     );

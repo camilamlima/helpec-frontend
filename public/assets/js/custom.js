@@ -1,5 +1,6 @@
 /*global jQuery:false */
-jQuery(document).ready(function($) {
+
+function load_all_components($) {
   "use strict";
 
 
@@ -209,4 +210,8 @@ jQuery(document).ready(function($) {
 
   // Page.init();
 
+};
+
+jQuery(document).ready(function($) {
+  load_all_components(jQuery);
 });
