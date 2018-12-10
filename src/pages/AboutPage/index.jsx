@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 
 import BasePage from '../BasePage';
+import Autora from './autora.jpg';
+
 
 class AboutPage extends Component {
   
@@ -51,99 +53,32 @@ class AboutPage extends Component {
                     
                     <div className="row">
                       <div className="span12">
-                        <h4>Talented peoples behind Flattern</h4>
+                        <h4>Colaboradora</h4>
                       </div>
                       <div className="span3">
-                        <img src="img/dummies/team1.jpg" alt="" className="img-polaroid" />
+                        <img src= {Autora} alt="Foto Camila Perfil"/>
                         <div className="roles">
                           <p className="lead">
-                            <strong>Vincent Austin Jr</strong>
-                          </p>
-                          <p>
-                            CEO - Founder
+                            <strong>Camila Lima</strong>
                           </p>
                         </div>
                       </div>
-                      <div className="span3">
-                        <img src="img/dummies/team2.jpg" alt="" className="img-polaroid" />
+                      <div className="span9">
                         <div className="roles">
-                          <p className="lead">
-                            <strong>Tommy Laugher</strong>
-                          </p>
                           <p>
-                            Lead designer
-                          </p>
-                        </div>
-                      </div>
-                      <div className="span3">
-                        <img src="img/dummies/team3.jpg" alt="" className="img-polaroid" />
-                        <div className="roles">
-                          <p className="lead">
-                            <strong>Gabirelle Borowski</strong>
-                          </p>
-                          <p>
-                            Customer support
-                          </p>
-                        </div>
-                      </div>
-                      <div className="span3">
-                        <img src="img/dummies/team4.jpg" alt="" className="img-polaroid" />
-                        <div className="roles">
-                          <p className="lead">
-                            <strong>Benny Strongton</strong>
-                          </p>
-                          <p>
-                            Coffee maker
+                            Teste
                           </p>
                         </div>
                       </div>
                     </div>
-                    
                     <div className="row">
                       <div className="span12">
                         <div className="solidline">
                         </div>
                       </div>
                     </div>
+                   
                     
-                    <div className="row">
-                      <div className="span6">
-                        <h4>Nossos Principios</h4>
-                        <div className="accordion" id="accordion2">
-                          <div className="accordion-group">
-                            <div className="accordion-heading">
-                              <a className="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Missão:</a>
-                            </div>
-                            <div id="collapseOne" className="accordion-body collapse in">
-                              <div className="accordion-inner">
-                                <p>Nossa missão e disseminar e esclarecer dúvidas, primeiros socorros, materiais para consulta voltados a ajudar dos portadores, familiares e amigos que sofrem com Epilepsia e Convulsão.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="accordion-group">
-                            <div className="accordion-heading">
-                              <a className="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">Visão:</a>
-                            </div>
-                            <div id="collapseTwo" className="accordion-body collapse">
-                              <div className="accordion-inner">
-                                <p>Como visão estamos propondo o uso da tecnologia a nosso favor com a criação e elaboração de um aplicativo mobile que a pessoa que estiver passando mal poderá enviar notificação aos contatos cadastrados ao acionar o botão de panico.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="accordion-group">
-                            <div className="accordion-heading">
-                              <a className="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">Valores</a>
-                            </div>
-                            <div id="collapseThree" className="accordion-body collapse">
-                              <div className="accordion-inner">
-                                <p>Dentre nossos valores estão a respeito e diminuir o preconceito contra os portadores de epilepsia e convulsão oferecendo materiais informativos, dicas de primeiros socorros e o uso do aplicativo a fim de facilitar a vida das pessoas.</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
                   </div>
                 </section>
         </BasePage>

@@ -234,3 +234,20 @@ ul.nav li.dropdown a {
 select.selectmenu {
   display: none;
 }
+
+@media (max-width: 767px) {
+  
+  select.selectmenu {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    color: #111;
+    margin-right: 20px;
+    line-height: 30px;
+    font-size: 13px;
+  }
+  select.selectmenu .bold {
+    font-weight: bold;
+  }
+  
+}
