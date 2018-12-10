@@ -95,11 +95,12 @@ function load_all_components($) {
 
 
   //Navi hover
-  $('ul.nav li.dropdown').hover(function() {
-    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn();
-  }, function() {
-    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut();
-  });
+  // Não usar jQuery
+  // $('ul.nav li.dropdown').hover(function() {
+  //   $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn();
+  // }, function() {
+  //   $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut();
+  // });
 
   // tooltip
   $('.social-network li a, .options_box .color a').tooltip();

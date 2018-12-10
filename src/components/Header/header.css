@@ -190,8 +190,22 @@ header ul.nav li a {
   font-weight: 600;
 }
 
+.navbar .nav li.dropdown:hover .dropdown-menu {
+  /* Mostra o menu */
+  opacity: 1;
+  /* Deixa o usuário clicar quando o menu estiver visivel */
+  pointer-events: all;
+}
+
 .navbar .nav li .dropdown-menu {
   z-index: 2000;
+  display: block;
+  /* Esconde o menu */
+  opacity: 0;
+  /* Não deixa o usuário clicar quando o menu estiver escondido */
+  pointer-events: none;
+  /* Velocidade da transição */
+  transition: 0.6s;
 }
 
 header ul.nav li ul {
