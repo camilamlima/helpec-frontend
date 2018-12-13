@@ -1,0 +1,14 @@
+.infografico{
+    display: flex;
+    justify-content: center;
+    }
+    
+.visao{
+    width:50%;
+}
+.valor{
+    margin-right:30px;
+ 
+    padding-top: 20px;
+    padding-bottom:20px;
+}

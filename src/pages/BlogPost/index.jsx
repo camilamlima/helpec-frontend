@@ -21,7 +21,7 @@ class BlogPost extends Component {
     const post = posts.filter(post => post.uid == post_uid);
 
     this.setState({
-      post: post,
+      post: post[0],
     });
     
   }
@@ -40,10 +40,14 @@ class BlogPost extends Component {
                     </div>
                     <img src={post.img} alt="" />
                   </div>
-                  <div>{post.full_text}</div>
+                  <div>
+                    <p dangerouslySetInnerHTML={{__html: post.full_text}} ></p>
+                  </div>
                   <div className="bottom-article">
                     <ul className="meta-post">
-                      <li><i className="icon-folder-open"></i><Link to={`/saibamais/${post.categorie}/`} >{post.categorieTitle}</Link></li>
+                      <li><i className="icon-folder-open"></i>
+                        <Link to={`/saibamais/${post.categorie}/`} >{post.categorieTitle}</Link>
+                      </li>
                     </ul>
                   </div>
                 </div>

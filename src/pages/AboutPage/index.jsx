@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Card, Button, CardTitle, CardText } from 'reactstrap';
+// import { Card, Button, CardTitle, CardText } from 'reactstrap';
 import BasePage from '../BasePage';
 
 import Autora from './autora.jpg';
