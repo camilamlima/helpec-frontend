@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 
 import BasePage from '../BasePage';
 import Infografico from './infografico.jpeg';
+import './falandosobre.css'
 
 class FalandoSobrePage extends Component {
   
@@ -70,7 +71,9 @@ Dentes travados e salivação abundante ('baba').
             </div>
             </div>         
          </div>
+         <div className = "infografico">
         <img src= {Infografico} alt="Infografico de Epilepsia" align="center"/>
+        </div>
         </BasePage>
       </Fragment>
     );

@@ -31,7 +31,6 @@ class Footer extends Component {
               <div className="widget">
               <div className="copyright">
                <h3 className="widgetheading">Redes Sociais</h3>
-
               <ul className="social-network">
                 <li><a href="https://www.facebook.com/" data-placement="bottom" title="Facebook"><i className="icon-facebook icon-square"></i></a></li>
                 <li><a href="https://www.linkedin.com/in/camilamlima/" data-placement="bottom" title="Linkedin"><i className="icon-linkedin icon-square"></i></a></li>
