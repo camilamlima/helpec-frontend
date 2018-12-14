@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 let Users = localStorage.getItem('users');
 if (!Users) {
     localStorage.setItem('users', 
-                         '[{"username":"cesar","email":"cesarabruschetta@gmail.com","password1":"123456","password2":"123456"}]')
+                         '[{"username":"camila","email":"camilam.oliveira@gmail.com","password1":"123456","password2":"123456"}]')
 }
 
 

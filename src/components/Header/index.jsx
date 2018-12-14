@@ -88,8 +88,8 @@ class Header extends Component {
                   <li>
                     <Link to="/quemsomos"><i className="fa fa-cog"></i>Quem somos</Link>
                   </li>
-                  <li>
-                      <Link to="/falandosobre"><i className="fa fa-cog"></i>Falando Sobre</Link>
+                   <li>
+                    <Link to="/falandosobre"><i className="fa fa-cog"></i>Falando sobre</Link>
                   </li>
                   <li>
                       <Link to="/socorros"><i className="fa fa-cog"></i>Primeiros Socorros</Link>
@@ -98,9 +98,8 @@ class Header extends Component {
                     <a href="#">Saiba Mais<i className="icon-angle-down"></i></a>
                     <ul className="dropdown-menu">
                       <li><Link to="/saibamais"><i className="fa fa-cog"></i>Artigos</Link></li>
-                      <li><Link to="/mitos"><i className="fa fa-cog"></i>Mitos e Lendas</Link></li>
-                      <li><Link to="/sobre"><i className="fa fa-cog"></i>Falando Sobre</Link></li>
-                    </ul>
+                      <li><Link to="/mitos"><i className="fa fa-cog"></i>Mitos e Verdades</Link></li>
+                     </ul>
                   </li>
                   <li>
                       <Link to="/contato"><i className="fa fa-cog"></i>Contato</Link>

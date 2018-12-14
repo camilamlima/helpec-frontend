@@ -16,22 +16,29 @@ class CategoriePage extends Component {
     };
     
   }
-  update_categories(){
-    let categorie = this.props.match.params.categorie_uid;
+  update_categories(categorie){
     const items = posts.filter(post => post.categorie == categorie);
 
     this.setState({
       items: items,
+      categorie: categorie,
       categorieTitle: categories.get(categorie).categorieTitle
     });
     
   }
   
-  componentWillReceiveProps() {
-    this.update_categories();
+  componentWillReceiveProps(nextProps) {
+    console.log("ILL")
+    if(nextProps.match.params.categorie_uid == this.state.categorie){
+      return;
+    }else {
+      this.update_categories(nextProps.match.params.categorie_uid);
+    }
+    
   }
   componentDidMount (){
-    this.update_categories();
+    console.log('mount')
+    this.update_categories(this.props.match.params.categorie_uid);
   }
   
   render() {

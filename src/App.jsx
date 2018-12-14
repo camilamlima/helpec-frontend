@@ -29,12 +29,11 @@ export const history = createBrowserHistory();
 class App extends React.Component {
     
     componentDidMount(){
-      console.log("MOUNT")
+      window.load_all_components(window.$);
     }
   
     componentDidUpdate(prevProps) {
-      console.log("aqui aqui ")
-      // load_all_components(jQuery) 
+      window.load_all_components(window.$);
     }
 
     render() {

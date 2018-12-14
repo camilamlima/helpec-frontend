@@ -11,7 +11,7 @@ class LastestPosts extends Component {
 
     return (
         <div className="widget">
-            <h5 className="widgetheading">Ultimos Artigos</h5>
+            <h5 className="widgetheading">Últimos Artigos</h5>
             <ul className="recent">
               {items.map((item, i) => {
                 return (

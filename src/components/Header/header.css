@@ -114,10 +114,13 @@ header .logo {
 
 header .logo img {
   margin-bottom: 10px;
+  width: 100px;
+  
 }
 
 header .logo h1 {
   font-family: "harlow_solid_italicitalic";
+  color: #762386;
   font-size: 14px;
   margin: 0;
 }

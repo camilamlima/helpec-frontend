@@ -15,12 +15,12 @@ class ProfilePage extends Component {
                 <div className="span8">
                   <div className="post-image">
                     <div className="post-heading">
-                      <h3>Bem vindo ao Helpc - seu site de ajuda</h3>
+                      <h3>Bem vindo ao Helpec - seu site de ajuda</h3>
                     </div>
                   </div>
                   <p>
-                    Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper laoreet perfecto ad qui, est rebum nulla argumentum ei. Fierent adipisci iracundia est ei, usu timeam persius
-                    ea. Usu ea justo malis, pri quando everti electram ei, ex homero omittam salutatus sed.
+                    Crie seu espaço personalizado para acompanhar suas crises com o histórico, cadastre seus contatos para serem notificados ao clicar no botão de pânico. Conte conosco e nos ajude a melhorar sempre!
+                    
                   </p>
                   
                 </div>

@@ -38,7 +38,7 @@ class OcorrenciaPage extends Component {
                 <div className="span8">
                   <div className="post-image">
                     <div className="post-heading">
-                      <h3>Grafico com minhas ocorrencias</h3>
+                      <h3>Gráfico com minhas ocorrências</h3>
                     </div>
                   </div>
 

@@ -13,7 +13,7 @@ class Footer extends Component {
               <h3 className="widgetheading">Nossas Páginas</h3>
                 <ul className="link-list">
                 <li><Link to="/quemsomos">Quem somos</Link></li>
-                <li><Link to="/sobre">Falando Sobre</Link></li>
+                <li><Link to="/falandosobre">Falando Sobre</Link></li>
                 <li><Link to="/socorros">Primeiro Socorros</Link></li>
               </ul>
             </div>
@@ -29,8 +29,7 @@ class Footer extends Component {
             </div>  
               <div className="span4">
               <div className="widget">
-              <div className="copyright">
-               <h3 className="widgetheading">Redes Sociais</h3>
+             <h3 className="widgetheading">Redes Sociais</h3>
               <ul className="social-network">
                 <li><a href="https://www.facebook.com/" data-placement="bottom" title="Facebook"><i className="icon-facebook icon-square"></i></a></li>
                 <li><a href="https://www.linkedin.com/in/camilamlima/" data-placement="bottom" title="Linkedin"><i className="icon-linkedin icon-square"></i></a></li>
@@ -40,7 +39,7 @@ class Footer extends Component {
                </div>
           </div>
         </div>
-      </div>
+      
       </footer>
     );
   }

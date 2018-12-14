@@ -155,11 +155,11 @@ ul.clients li:hover {
 .icon-square:hover,
 .icon-rounded:hover,
 .icon-circled:hover {
-    background-color: #cb1103;
+    background-color: #6F1381;
 }
 [class^="icon-"].active,
 [class*=" icon-"].active {
-    background-color: #cb1103;
+    background-color: #6F1381;
 }
 
 /* fancybox */

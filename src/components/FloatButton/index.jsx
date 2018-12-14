@@ -7,7 +7,7 @@ class FloatButton extends Component {
   
   render() {
     return (
-        <button className= "panico" type= "button" onClick={this.onclick}> Panico</button> 
+        <button className= "panico" type= "button" onClick={this.onclick}> Pânico</button> 
         
     )
   }

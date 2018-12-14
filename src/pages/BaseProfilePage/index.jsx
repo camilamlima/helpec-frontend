@@ -23,7 +23,7 @@ class BaseProfilePage extends Component {
                         <li><i className="icon-angle-right"></i><Link to="/profile">DashBoard</Link></li>
                         <li><i className="icon-angle-right"></i><Link to="/profile/edit">Editar Perfil</Link></li>
                         <li><i className="icon-angle-right"></i><Link to="/profile/contatos">Quem Avisar</Link></li>
-                        <li><i className="icon-angle-right"></i><Link to="/profile/historico">Historio de Ocorencias</Link></li>
+                        <li><i className="icon-angle-right"></i><Link to="/profile/historico">Histórico de Ocorrências</Link></li>
                         <li><i className="icon-angle-right"></i><Link to="/profile/sair">Sair</Link></li>
                       </ul>
                     </div>
